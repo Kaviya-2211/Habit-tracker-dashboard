@@ -371,8 +371,18 @@ def stat_card(title, value, color, subtitle=""):
 app.layout = html.Div(style={"backgroundColor": COLORS["bg"], "minHeight": "100vh",
                               "fontFamily": "monospace", "color": COLORS["text"]}, children=[
 
-    dcc.Store(id="store-data",   data={}),
-    dcc.Store(id="store-habits", data=DEFAULT_HABITS),
+    dcc.Store(
+    id="store-data",
+    storage_type="local",
+    data={}
+),
+
+dcc.Store(
+    id="store-habits",
+    storage_type="local",
+    data=DEFAULT_HABITS
+),
+    
 
     # ── HEADER ──────────────────────────────────────────────
     html.Div(style={"background": "#0d0d1f", "borderBottom": f"1px solid {COLORS['border']}",
